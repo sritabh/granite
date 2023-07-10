@@ -62,7 +62,9 @@ end
 # For compiling and bundling JavaScript. Read more: https://github.com/shakacode/shakapacker
 gem "shakapacker"
 
+#Some comment
 gem "responders"
 
+# For React
 gem 'react-rails'
 
