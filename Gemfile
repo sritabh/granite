@@ -68,3 +68,7 @@ gem "responders"
 # For React
 gem 'react-rails'
 
+#Checking implementation
+gem "pry-byebug"
+
+
