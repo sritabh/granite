@@ -64,3 +64,5 @@ gem "shakapacker"
 
 gem "responders"
 
+gem 'react-rails'
+
