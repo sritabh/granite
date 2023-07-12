@@ -4,14 +4,15 @@ import { ToastContainer } from "react-toastify";
 
 import CreateTask from "components/Tasks/Create";
 import Dashboard from "components/Dashboard";
+import { CreateTask, ShowTask } from "components/Tasks";
 import PageLoader from "components/PageLoader";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
+    console.log("App.jsx: useEffect");
     initializeLogger();
     registerIntercepts();
     setAuthHeaders(setLoading);
@@ -29,6 +30,7 @@ const App = () => {
       <ToastContainer />
       <Router>
         <Switch>
+          <Route exact path="/tasks/:slug/show" component={ShowTask} />
           <Route exact path="/tasks/create" component={CreateTask} />
           <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
