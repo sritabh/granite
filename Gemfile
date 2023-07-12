@@ -71,4 +71,5 @@ gem 'react-rails'
 #Checking implementation
 gem "pry-byebug"
 
-
+#installine pundit
+# gem 'pundit'
