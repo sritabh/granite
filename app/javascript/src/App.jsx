@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import CreateTask from "components/Tasks/Create";
 import Dashboard from "components/Dashboard";
 import { CreateTask, ShowTask } from "components/Tasks";
 import PageLoader from "components/PageLoader";
@@ -12,7 +11,6 @@ import { initializeLogger } from "common/logger";
 const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    console.log("App.jsx: useEffect");
     initializeLogger();
     registerIntercepts();
     setAuthHeaders(setLoading);
