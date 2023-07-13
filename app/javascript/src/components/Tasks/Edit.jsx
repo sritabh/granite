@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+
 import { useParams } from "react-router-dom";
 
-import Container from "components/Container";
-import Form from "./Form";
 import tasksApi from "apis/tasks";
+import Container from "components/Container";
 import PageLoader from "components/PageLoader";
+
+import Form from "./Form";
 
 const Edit = ({ history }) => {
   const [title, setTitle] = useState("");
@@ -59,13 +61,13 @@ const Edit = ({ history }) => {
   return (
     <Container>
       <Form
-        type="update"
-        title={title}
-        userId={userId}
+        handleSubmit={handleSubmit}
+        loading={loading}
         setTitle={setTitle}
         setUserId={setUserId}
-        loading={loading}
-        handleSubmit={handleSubmit}
+        title={title}
+        type="update"
+        userId={userId}
       />
     </Container>
   );

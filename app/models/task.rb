@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Task < ApplicationRecord
   MAX_TITLE_LENGTH = 125
   VALID_TITLE_REGEX = /\A.*[a-zA-Z0-9].*\z/i
@@ -9,7 +11,7 @@ class Task < ApplicationRecord
   validates :slug, uniqueness: true
   validate :slug_not_changed
 
-    before_create :set_slug
+  before_create :set_slug
 
   private
 
@@ -29,13 +31,10 @@ class Task < ApplicationRecord
       slug_candidate = slug_count.positive? ? "#{title_slug}-#{slug_count + 1}" : title_slug
       self.slug = slug_candidate
     end
-  
-  
-  
 
     def slug_not_changed
       if slug_changed? && self.persisted?
-        errors.add(:slug, t('task.slug.immutable'))
+        errors.add(:slug, t("task.slug.immutable"))
       end
     end
 end

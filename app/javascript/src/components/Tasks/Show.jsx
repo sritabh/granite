@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
+
 import { useParams, useHistory } from "react-router-dom";
 
+import tasksApi from "apis/tasks";
 import Container from "components/Container";
 import PageLoader from "components/PageLoader";
-import tasksApi from "apis/tasks";
 
 const Show = () => {
   const [taskDetails, setTaskDetails] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
   const { slug } = useParams();
 
-  let history = useHistory();
+  const history = useHistory();
 
   const updateTask = () => {
     history.push(`/tasks/${taskDetails.slug}/edit`);
@@ -46,7 +47,7 @@ const Show = () => {
         <i
           className="text-2xl text-center transition cursor-pointer duration-300ease-in-out ri-edit-line hover:text-bb-yellow"
           onClick={updateTask}
-        ></i>
+        />
       </div>
     </Container>
   );

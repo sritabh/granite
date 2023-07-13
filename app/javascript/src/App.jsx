@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import Dashboard from "components/Dashboard";
-import { CreateTask, ShowTask, EditTask } from "components/Tasks";
-import PageLoader from "components/PageLoader";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
+import Dashboard from "components/Dashboard";
+import PageLoader from "components/PageLoader";
+import { CreateTask, ShowTask, EditTask } from "components/Tasks";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -23,15 +24,16 @@ const App = () => {
       </div>
     );
   }
+
   return (
     <div>
       <ToastContainer />
       <Router>
         <Switch>
-          <Route exact path="/tasks/:slug/edit" component={EditTask} />
-          <Route exact path="/tasks/:slug/show" component={ShowTask} />
-          <Route exact path="/tasks/create" component={CreateTask} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact component={EditTask} path="/tasks/:slug/edit" />
+          <Route exact component={ShowTask} path="/tasks/:slug/show" />
+          <Route exact component={CreateTask} path="/tasks/create" />
+          <Route exact component={Dashboard} path="/dashboard" />
         </Switch>
       </Router>
     </div>

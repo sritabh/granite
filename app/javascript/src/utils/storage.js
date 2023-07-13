@@ -14,6 +14,7 @@ const getFromLocalStorage = key => {
     logger.error(error);
     response = "";
   }
+
   return response;
 };
 

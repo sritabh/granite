@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Container from "components/Container";
-import Form from "./Form";
+
 import tasksApi from "apis/tasks";
+import Container from "components/Container";
+
+import Form from "./Form";
 
 const Create = ({ history }) => {
   const [title, setTitle] = useState("");
@@ -19,11 +21,10 @@ const Create = ({ history }) => {
       setLoading(false);
     }
   };
-  
 
   return (
     <Container>
-      <Form setTitle={setTitle} loading={loading} handleSubmit={handleSubmit} />
+      <Form handleSubmit={handleSubmit} loading={loading} setTitle={setTitle} />
     </Container>
   );
 };

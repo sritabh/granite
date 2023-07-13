@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveRecord::ConnectionAdapters::AbstractAdapter.class_eval do
   alias_method :orig_initialize, :initialize
 

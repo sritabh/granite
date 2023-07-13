@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -6,5 +8,5 @@ Rails.application.routes.draw do
   resources :tasks, except: %i[new edit destroy], param: :slug
 
   root "home#index"
-  get '*path', to: 'home#index', via: :all
+  get "*path", to: "home#index", via: :all
 end

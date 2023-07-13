@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import { isNil, isEmpty, either } from "ramda";
 
-import Container from "components/Container";
-import Table from "components/Tasks/Table";
 import tasksApi from "apis/tasks";
+import Container from "components/Container";
 import PageLoader from "components/PageLoader";
+import Table from "components/Tasks/Table";
 
 const Dashboard = ({ history }) => {
   const [tasks, setTasks] = useState([]);

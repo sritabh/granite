@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   before_action :load_task!, only: %i[show update]
 
@@ -5,6 +7,7 @@ class TasksController < ApplicationController
     tasks = Task.all
     render status: :ok, json: { tasks: }
   end
+
   def create
     task = Task.new(task_params)
     task.save!
@@ -23,9 +26,11 @@ class TasksController < ApplicationController
   end
 
   private
+
     def load_task!
       @task = Task.find_by!(slug: params[:slug])
     end
+
     def task_params
       params.require(:task).permit(:title)
     end

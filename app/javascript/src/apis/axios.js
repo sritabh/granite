@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import Toastr from "components/Common/Toastr";
 import { setToLocalStorage, getFromLocalStorage } from "utils/storage";
 
@@ -30,6 +31,7 @@ const handleSuccessResponse = response => {
       Toastr.success(response.data.notice);
     }
   }
+
   return response;
 };
 
@@ -38,12 +40,14 @@ const handleErrorResponse = axiosErrorObject => {
     setToLocalStorage({ authToken: null, email: null, userId: null });
     setTimeout(() => (window.location.href = "/"), 2000);
   }
+
   Toastr.error(
     axiosErrorObject.response?.data?.error || DEFAULT_ERROR_NOTIFICATION
   );
   if (axiosErrorObject.response?.status === 423) {
     window.location.href = "/";
   }
+
   return Promise.reject(axiosErrorObject);
 };
 

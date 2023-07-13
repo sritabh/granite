@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -62,14 +64,29 @@ end
 # For compiling and bundling JavaScript. Read more: https://github.com/shakacode/shakapacker
 gem "shakapacker"
 
-#Some comment
+# Some comment
 gem "responders"
 
 # For React
-gem 'react-rails'
+gem "react-rails"
 
-#Checking implementation
+# Checking implementation
 gem "pry-byebug"
 
-#installine pundit
+# installine pundit
 # gem 'pundit'
+
+group :development, :test do
+  # previous gems under this group as it was
+
+  # For code formatting and linting
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+end
+
+group :development do
+  # previous gems under this group as it was
+
+  # For linting ERB files
+  gem "erb_lint", require: false, git: "https://github.com/Shopify/erb-lint.git", branch: "main"
+end
